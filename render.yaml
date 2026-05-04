@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: botwala-n8n
+    runtime: docker
+    region: singapore
+    plan: free
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: botwala
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: BotWala@2024
+      - key: NODE_ENV
+        value: production
+      - key: GENERIC_OAUTH_ENABLED
+        value: "false"
+    healthCheckPath: /healthz
+    dockerfile: ./Dockerfile
